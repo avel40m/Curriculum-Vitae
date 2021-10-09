@@ -1,0 +1,33 @@
+@model resumemanager.obj.Applicant
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="col-11 mx-auto pt-0 p-0">
+    <div class="text-center dg-danger">
+        <h1>¿Desea eliminar este usuario?</h1>
+    </div>
+    <div class="card">
+        <div class="card-header text-uppercase">
+            Eliminar
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <h5>Nombre: </h5>
+                    <p>@Model.Name</p>
+                    <h5>Genero: </h5>
+                    <p>@Model.Gender</p>
+                    <h5>Edad: </h5>
+                    <p>@Model.Age</p>
+                    <h5>Clasificación: </h5>
+                    <p>@Model.Qualification</p>
+                </div>
+            </div>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id">
+                <input type="submit" class="btn btn-danger" value="Eliminar">
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+@model IEnumerable<resumemanager.obj.Applicant>
+@{
+    ViewData["Title"] = "Lista";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Qualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalExperiencie)
+            </th>
+            <th> <a asp-action="Create" class="btn btn-success btn-sm">Crear nuevo</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="~/images/@item.PhotoUrl" width="50" class="rounded"></td>
+                <td>@item.Name</td>
+                <td>@item.Gender</td>
+                <td>@item.Age</td>
+                <td>@item.Qualification</td>
+                <td>@item.TotalExperiencie</td>
+                <td>
+                    <div class="row">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="nav-link">Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="nav-link text-danger">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

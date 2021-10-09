@@ -1,0 +1,67 @@
+@model resumemanager.obj.Applicant
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="col-11 mx-auto pt-0 p-0">
+    <div class="card">
+        <div class="card-header bg-success text-uppercase text-white" style="height: 45%;">
+            <h4>Detalles</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Nombre</h5>
+                <p>@Model.Name</p>
+            </div>
+            <div class="col-md-6">
+                <h5>Genero</h5>
+                <p>@Model.Gender</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Edad</h5>
+                <p>@Model.Age</p>
+            </div>
+            <div class="col-md-6">
+                <h5>Clasificación</h5>
+                <p>@Model.Qualification</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Experiencia</h5>
+                <p>@Model.TotalExperiencie</p>
+            </div>
+            <div class="col-md-6">
+                <h5>Foto de perfíl</h5>
+                <img src="~/images/@Model.PhotoUrl" class="img-thumbnail" width="100">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-12">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre de la compañia</th>
+                <th>Designación</th>
+                <th>Años de trabajos</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Experiencies.Count; i++)
+            {
+        <tr>
+            <td>@Model.Experiencies[i].CompanyName</td>
+            <td>@Model.Experiencies[i].Designation</td>
+            <td>@Model.Experiencies[i].YearsWorked</td>
+        </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="col-12 text-center">
+<a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>
